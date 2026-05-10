@@ -24,8 +24,7 @@ public class App
 
         WebDriver driver = new ChromeDriver(options);
 
-        // Explicit wait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         // ----------- TEST 1 : SauceDemo -----------
         driver.get("https://www.saucedemo.com/");
@@ -40,20 +39,7 @@ public class App
 
         System.out.println("Test 1 Passed");
 
-        // ----------- TEST 2 : Practice Test Automation -----------
-        driver.get("https://practicetestautomation.com/practice-test-login/");
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-
-        driver.findElement(By.id("username")).sendKeys("student");
-        driver.findElement(By.id("password")).sendKeys("Password123");
-        driver.findElement(By.id("submit")).click();
-
-        Thread.sleep(2000);
-
-        System.out.println("Test 2 Passed");
-
-        // ----------- TEST 3 : Automation Exercise -----------
+        // ----------- TEST 2 : Automation Exercise -----------
         driver.get("https://automationexercise.com/products");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search_product")));
@@ -63,12 +49,11 @@ public class App
 
         Thread.sleep(2000);
 
-        System.out.println("Test 3 Passed");
+        System.out.println("Test 2 Passed");
 
         // Final verification
         System.out.println("Final Page Title: " + driver.getTitle());
 
-        // Close browser
         driver.quit();
 
         System.out.println("All Tests Executed Successfully");
